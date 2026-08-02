@@ -244,8 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (APPS_SCRIPT_WEBAPP_URL) {
         const response = await fetch(APPS_SCRIPT_WEBAPP_URL, {
           method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(formData)
         });
         showToast('Registration submitted successfully to FMCK database!', 'success');
