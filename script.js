@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fullName = document.getElementById('fullName');
   const staffId = document.getElementById('staffId');
   const department = document.getElementById('department');
-  const unit = document.getElementById('unit');
+  const unit = document.getElementById('unit/division');
   const ippisNo = document.getElementById('ippisNo');
   const phoneNo = document.getElementById('phoneNo');
   const monthlySavings = document.getElementById('monthlySavings');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDraft();
 
   // Input Listeners for Auto-Save
-  [fullName, staffId, department, unit, ippisNo, phoneNo, monthlySavings, nextOfKin].forEach(input => {
+  [fullName, staffId, department, unit/division, ippisNo, phoneNo, monthlySavings, nextOfKin].forEach(input => {
     input.addEventListener('input', saveDraft);
   });
 
@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
       isValid = false;
     }
 
-    // 4. Unit
-    if (!unit.value.trim()) {
-      markError(unit, 'Please enter your Unit');
-      if (!firstErrorInput) firstErrorInput = unit;
+    // 4. Unit/Division
+    if (!unit/division.value.trim()) {
+      markError(unit/division, 'Please enter your Unit/Division');
+      if (!firstErrorInput) firstErrorInput = unit/division;
       isValid = false;
     }
 
@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="value">${escapeHtml(department.value)}</span>
       </div>
       <div class="preview-item">
-        <span class="label">4. Unit</span>
-        <span class="value">${escapeHtml(unit.value)}</span>
+        <span class="label">4. Unit/Division</span>
+        <span class="value">${escapeHtml(unit/division.value)}</span>
       </div>
       <div class="preview-item">
         <span class="label">5. IPPIS Number</span>
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: fullName.value.trim(),
       staffId: staffId.value.trim(),
       department: department.value.trim(),
-      unit: unit.value.trim(),
+      unit/division: unit/division.value.trim(),
       ippisNo: ippisNo.value.trim(),
       phoneNo: phoneNo.value.trim(),
       monthlySavings: monthlySavings.value.trim(),
@@ -294,8 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="value">${escapeHtml(department.value)}</span>
       </div>
       <div class="preview-item">
-        <span class="label">4. Unit</span>
-        <span class="value">${escapeHtml(unit.value)}</span>
+        <span class="label">4. Unit/Division</span>
+        <span class="value">${escapeHtml(unit/division.value)}</span>
       </div>
       <div class="preview-item">
         <span class="label">5. IPPIS Number</span>
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fullName: fullName.value,
       staffId: staffId.value,
       department: department.value,
-      unit: unit.value,
+      unit/division: unit/division.value,
       ippisNo: ippisNo.value,
       phoneNo: phoneNo.value,
       monthlySavings: monthlySavings.value,
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (draft.fullName) fullName.value = draft.fullName;
         if (draft.staffId) staffId.value = draft.staffId;
         if (draft.department) department.value = draft.department;
-        if (draft.unit) unit.value = draft.unit;
+        if (draft.unit/division) unit/division.value = draft.unit/division;
         if (draft.ippisNo) ippisNo.value = draft.ippisNo;
         if (draft.phoneNo) phoneNo.value = draft.phoneNo;
         if (draft.monthlySavings) monthlySavings.value = draft.monthlySavings;
