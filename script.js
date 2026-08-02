@@ -5,8 +5,8 @@
  * ==============================================================================
  */
 
-// Configuration: Replace with your deployed Google Apps Script Web App URL if using web submissions
-const APPS_SCRIPT_WEBAPP_URL = ""; 
+// Configuration: Deployed Google Apps Script Web App URL
+const APPS_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxurdMwGvmhuwmRHjUB8UBNM18HMoQUBHETgfZirZNvT111ZshZCDn2xSJwV8AH-Fw/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fullName = document.getElementById('fullName');
   const staffId = document.getElementById('staffId');
   const department = document.getElementById('department');
-  const unit = document.getElementById('unit');
+  const unit = document.getElementById('unit'); // Represents Unit / Division
   const ippisNo = document.getElementById('ippisNo');
   const phoneNo = document.getElementById('phoneNo');
   const monthlySavings = document.getElementById('monthlySavings');
@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Input Listeners for Auto-Save
   [fullName, staffId, department, unit, ippisNo, phoneNo, monthlySavings, nextOfKin].forEach(input => {
-    input.addEventListener('input', saveDraft);
+    if (input) {
+      input.addEventListener('input', saveDraft);
+    }
   });
 
   // Preview Button Click Handler
@@ -101,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
       isValid = false;
     }
 
-    // 4. Unit
+    // 4. Unit/Division
     if (!unit.value.trim()) {
-      markError(unit, 'Please enter your Unit');
+      markError(unit, 'Please enter your Unit / Division');
       if (!firstErrorInput) firstErrorInput = unit;
       isValid = false;
     }
@@ -170,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function populatePreviewModal() {
     const formattedSavings = formatCurrency(parseFloat(monthlySavings.value));
-    
+
     modalPreviewContent.innerHTML = `
       <div class="preview-item full-width">
         <span class="label">1. Full Name</span>
@@ -185,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="value">${escapeHtml(department.value)}</span>
       </div>
       <div class="preview-item">
-        <span class="label">4. Unit</span>
+        <span class="label">4. Unit / Division</span>
         <span class="value">${escapeHtml(unit.value)}</span>
       </div>
       <div class="preview-item">
@@ -240,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       let refCode = 'FMCK-COOP-' + Math.floor(100000 + Math.random() * 900000);
-      
+
       if (APPS_SCRIPT_WEBAPP_URL) {
         const response = await fetch(APPS_SCRIPT_WEBAPP_URL, {
           method: 'POST',
@@ -294,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="value">${escapeHtml(department.value)}</span>
       </div>
       <div class="preview-item">
-        <span class="label">4. Unit</span>
+        <span class="label">4. Unit / Division</span>
         <span class="value">${escapeHtml(unit.value)}</span>
       </div>
       <div class="preview-item">
@@ -385,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Utility to escape HTML
   function escapeHtml(str) {
     if (!str) return '';
-    return str.replace(/[&<>"']/g, function(m) {
+    return str.replace(/[&<>"']/g, function (m) {
       return {
         '&': '&amp;',
         '<': '&lt;',
