@@ -6,7 +6,7 @@
  */
 
 // Configuration: Replace with your deployed Google Apps Script Web App URL if using web submissions
-const APPS_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"; 
+const APPS_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxurdMwGvmhuwmRHjUB8UBNM18HMoQUBHETgfZirZNvT111ZshZCDn2xSJwV8AH-Fw/exec"; 
 
 document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
