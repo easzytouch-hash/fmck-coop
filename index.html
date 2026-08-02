@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Registration Portal for Federal Medical Center, Kumo (FMCK) MultiPurpose Cooperative Society">
+  <title>FMCK MultiPurpose Cooperative Society - Registration Portal</title>
+
+  <!-- Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Official Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand-section">
+        <div class="logo-wrapper">
+          <img src="assets/logo.png" alt="FMC Kumo Logo" id="fmcLogo">
+        </div>
+        <div class="title-group">
+          <h1>Federal Medical Center, Kumo</h1>
+          <h2>FMCK MultiPurpose Cooperative Society</h2>
+        </div>
+      </div>
+      <div class="portal-badge">
+        <i class="fa-solid fa-file-signature"></i> Registration Portal
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Portal Section -->
+  <main>
+    <div class="form-card">
+      <div class="card-header-banner">
+        <h2>Cooperative Staff Registration</h2>
+        <p>Please complete the 9 fields below to submit your registration for membership and payroll deduction
+          enrollment.</p>
+      </div>
+
+      <form id="coopForm" novalidate>
+        <div class="form-grid">
+
+          <!-- 1. Name -->
+          <div class="input-group full-width">
+            <label for="fullName">
+              1. Name <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="fullName" name="fullName" class="input-control"
+                placeholder="Surname First Name Middle Name" required>
+            </div>
+            <div class="input-helper">Enter your full legal name as it appears on your official appointment record.
+            </div>
+          </div>
+
+          <!-- 2. Staff ID / File No. -->
+          <div class="input-group">
+            <label for="staffId">
+              2. Staff ID / File No. <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-id-badge"></i>
+              <input type="text" id="staffId" name="staffId" class="input-control" placeholder="e.g. FMCK/P/123"
+                required>
+            </div>
+            <div class="input-helper">Your FMC Kumo staff file number or ID.</div>
+          </div>
+
+          <!-- 3. Department -->
+          <div class="input-group">
+            <label for="department">
+              3. Department <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-building"></i>
+              <input type="text" id="department" name="department" class="input-control"
+                placeholder="e.g. Nursing Services, Admin, Pharmacy" required>
+            </div>
+            <div class="input-helper">Your primary hospital department.</div>
+          </div>
+
+          <!-- 4. Unit -->
+          <div class="input-group">
+            <label for="unit">
+              4. Unit <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-sitemap"></i>
+              <input type="text" id="unit" name="unit" class="input-control"
+                placeholder="e.g. Male Surgical Ward, Accounts, GOPD" required>
+            </div>
+            <div class="input-helper">Your specific work unit within the department.</div>
+          </div>
+
+          <!-- 5. IPPIS NO. -->
+          <div class="input-group">
+            <label for="ippisNo">
+              5. IPPIS NO. <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-hashtag"></i>
+              <input type="text" id="ippisNo" name="ippisNo" class="input-control" placeholder="6-digit IPPIS Number"
+                required pattern="[0-9]{5,10}">
+            </div>
+            <div class="input-helper">Your federal payroll IPPIS identification number.</div>
+          </div>
+
+          <!-- 6. Phone No. -->
+          <div class="input-group">
+            <label for="phoneNo">
+              6. Phone No. <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" id="phoneNo" name="phoneNo" class="input-control" placeholder="e.g. 08012345678"
+                required>
+            </div>
+            <div class="input-helper">Active phone number (WhatsApp enabled preferred).</div>
+          </div>
+
+          <!-- 7. Monthly Savings Amount -->
+          <div class="input-group">
+            <label for="monthlySavings">
+              7. Monthly Savings Amount (₦) <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-naira-sign"></i>
+              <input type="number" id="monthlySavings" name="monthlySavings" class="input-control"
+                placeholder="e.g. 10000" min="1000" step="500" required>
+            </div>
+            <div class="input-helper">Designated monthly cooperative contribution deduction in Naira.</div>
+          </div>
+
+          <!-- 8. Next of Kin -->
+          <div class="input-group full-width">
+            <label for="nextOfKin">
+              8. Next of Kin <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-users" style="top: 1.1rem;"></i>
+              <textarea id="nextOfKin" name="nextOfKin" class="input-control"
+                placeholder="Name of Next of Kin, Relationship, Phone Number" required></textarea>
+            </div>
+            <div class="input-helper">Provide full name, relationship (e.g. Spouse/Brother), and contact phone number.
+            </div>
+          </div>
+
+          <!-- 9. Declaration & Consent Checkbox -->
+          <div class="full-width">
+            <div class="checkbox-card">
+              <input type="checkbox" id="declaration" name="declaration" required>
+              <label for="declaration">
+                <strong>9. Declaration & Consent Checkbox:</strong> I hereby confirm that all information provided above
+                is accurate and complete. I authorize the FMCK MultiPurpose Cooperative Society to deduct my specified
+                monthly savings from my salary.
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="button" id="resetBtn" class="btn btn-secondary">
+            <i class="fa-solid fa-rotate-left"></i> Reset Form
+          </button>
+          <button type="button" id="previewBtn" class="btn btn-primary">
+            <i class="fa-solid fa-eye"></i> Preview & Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Confirmation Preview Modal -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-receipt"></i> Confirm Registration Details</h3>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="receipt-preview">
+          <div class="receipt-header">
+            <img src="assets/logo.png" alt="FMC Kumo Logo">
+            <h4>Federal Medical Center, Kumo</h4>
+            <p>FMCK MultiPurpose Cooperative Society Registration Slip</p>
+          </div>
+          <div class="preview-grid" id="modalPreviewContent">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="editModalBtn">
+          <i class="fa-solid fa-pen"></i> Edit Information
+        </button>
+        <button type="button" class="btn btn-primary" id="confirmSubmitBtn">
+          <i class="fa-solid fa-paper-plane"></i> Final Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Alerts Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 <strong>Federal Medical Center, Kumo (FMCK)</strong> MultiPurpose Cooperative Society. All Rights
+      Reserved.</p>
+  </footer>
+
+  <!-- JS Engine -->
+  <script src="script.js"></script>
+</body>
+
+</html>

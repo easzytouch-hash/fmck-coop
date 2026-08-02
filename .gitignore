@@ -1,0 +1,9 @@
+# Google Apps Script file (excluded from git as requested)
+code.gs
+
+# System and IDE files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
